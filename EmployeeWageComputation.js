@@ -1,6 +1,6 @@
 console.log("Welcome to Employee Wage Computation Program using Java Script")
 
-console.log("------UC5------");
+console.log("------UC6------");
 const IS_ABSENT = 0;
 const IS_PART_TIME = 1;
 const IS_FULL_TIME = 2;
@@ -26,11 +26,21 @@ function getWorkingHours(empCheck)
             break;
     }
 }
+
+
+function calculateDailyWage(empHrs)
+{
+    return empHrs * WAGE_PER_HOUR;
+}
+
+let empDailyWageArr = new Array();
 while(totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkinDays < NUM_OF_WORKING_DAYS)
 {
     totalWorkinDays++;
     let empCheck = Math.floor(Math.random() * 10) % 3;
-    totalEmpHrs += getWorkingHours(empCheck);
+    empHrs = getWorkingHours(empCheck);
+    totalEmpHrs += empHrs;
+    empDailyWageArr.push(calculateDailyWage(empHrs));
 }
-let empWage = totalEmpHrs * WAGE_PER_HOUR; 
-console.log("UC5 - Total Days : "+ totalWorkinDays +" Total Hrs : " + totalEmpHrs +" Total Emp Wage : " + empWage);
+let empWage = calculateDailyWage(totalEmpHrs);
+console.log("UC6 - Total Days : "+ totalWorkinDays +" Total Hrs : " + totalEmpHrs +" Total Emp Wage : " + empWage);
