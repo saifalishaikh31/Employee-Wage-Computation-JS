@@ -1,6 +1,6 @@
 console.log("Welcome to Employee Wage Computation Program using Java Script")
 
-console.log("------UC2------");
+console.log("------UC3------");
 const IS_ABSENT = 0;
 const IS_PART_TIME = 1;
 const IS_FULL_TIME = 2;
