@@ -118,3 +118,24 @@ console.log("UC8 Map Functions");
 //UC 8 - Storing daily wage in map
 console.log(empDailyWageMap);
 console.log("UC8 - Emp Wage map totalHrs: "+ Array.from(empDailyWageMap.values()).reduce(totalWages,0));
+
+console.log("UC9 Arrow Functions");//UC9
+
+const findTotal = (totalVal,dailyVal) => {
+    return totalVal + dailyVal;
+}
+let totalHours = Array.from(empDailyHrsMap.values()).reduce(findTotal,0);
+let totalSalary = empDailyWageArr.filter(dailyWage => dailyWage > 0).reduce(findTotal,0);
+console.log("UC9 - Emp Wage with Arrow : " + " Total Hours : " + totalHours + " Total Wages" + totalSalary);
+
+let nonWorkingDays = new Array();
+let partWorkingDays = new Array();
+let fullWorkingDays = new Array();
+empDailyHrsMap.forEach((value, key, map) => {
+    if (value == 8) fullWorkingDays.push(key);
+    else if (value == 4) partWorkingDays.push(key);
+    else nonWorkingDays.push(key); 
+});
+console.log("Full working days: " + fullWorkingDays);
+console.log("Part working days: " + partWorkingDays);
+console.log("Non working days: " + nonWorkingDays);
