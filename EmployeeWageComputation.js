@@ -124,9 +124,11 @@ console.log("UC9 Arrow Functions");//UC9
 const findTotal = (totalVal,dailyVal) => {
     return totalVal + dailyVal;
 }
-let totalHours = Array.from(empDailyHrsMap.values()).reduce(findTotal,0);
+let totalHours = Array.from(empDailyHrsMap.values())
+                    .filter(dailyHours => dailyHours > 0)
+                    .reduce(findTotal,0);
 let totalSalary = empDailyWageArr.filter(dailyWage => dailyWage > 0).reduce(findTotal,0);
-console.log("UC9 - Emp Wage with Arrow : " + " Total Hours : " + totalHours + " Total Wages" + totalSalary);
+console.log("UC9 - Emp Wage with Arrow : " + " Total Hours : " + totalHours + " Total Wages : " + totalSalary);
 
 let nonWorkingDays = new Array();
 let partWorkingDays = new Array();
